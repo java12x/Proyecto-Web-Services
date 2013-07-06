@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="WSMateria">
+      <implementation-class>WebServices.WSMateria</implementation-class>
+    </service>
+    <service name="WSGestion">
+      <implementation-class>WebServices.WSGestion</implementation-class>
+    </service>
+    <service name="WSMateriaCarrera">
+      <implementation-class>WebServices.WSMateriaCarrera</implementation-class>
+    </service>
+    <service name="WSPreRequisito">
+      <implementation-class>WebServices.WSPreRequisito</implementation-class>
+    </service>
+    <service name="WSCarrera">
+      <implementation-class>WebServices.WSCarrera</implementation-class>
+    </service>
+    <service name="WSPersona">
+      <implementation-class>WebServices.WSPersona</implementation-class>
+    </service>
+    <service name="WSDocente">
+      <implementation-class>WebServices.WSDocente</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>

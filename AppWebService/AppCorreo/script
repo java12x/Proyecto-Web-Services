@@ -1,0 +1,71 @@
+create database uagrm
+use uagrm;
+create table persona(
+	id int not null auto_increment,
+	per_ci varchar (16) not null,	
+	per_nombres varchar(64) not null,
+	per_apellidos varchar(64) not null,
+	per_genero varchar(16) not null,
+	per_fechanac varchar(16) not null,
+	per_telefono varchar(32),
+	per_telmovil varchar(32),
+	per_email varchar(64) not null,
+	primary key(id)
+);
+
+create table docente(
+	id int not null auto_increment,
+	doc_per_id int not null,
+	doc_registro varchar(16) not null,
+	doc_estado int not null,
+	primary key(id),
+	foreign key(doc_per_id) references persona(id)
+);
+
+create table gestion(
+	id int not null auto_increment,
+	ges_anio int,
+	ges_semestre int,
+	ges_estado  int,
+	primary key(id)
+);
+
+create table materia(
+	id int not null auto_increment,
+	mat_sigla varchar(8),
+	mat_nombre varchar(64),
+	mat_semestre int,
+	mat_HTeoricas float,
+	mat_HPracticas float,
+	mat_HSemestre float,
+	mat_creditos float,
+	mat_estado int,
+	primary key(id)
+);
+
+create table carrera(
+	id int not null auto_increment,
+	car_nombre varchar(64),
+	car_descripcion varchar(128),
+	car_estado int,
+	primary key(id)
+);
+
+create table materiaCarrera(
+	id int not null auto_increment,
+	matC_mat_id int,
+	matC_car_id int,
+	primary key(id),
+	foreign key(matC_mat_id) references materia(id),
+	foreign key(matC_car_id) references carrera(id)
+);
+
+create table PreRequisito(
+	id int not null auto_increment,
+	req_mat_id int,
+	req_matC_id int,
+	primary key(id),
+	foreign key(req_mat_id) references materia(id),
+	foreign key(req_matC_id) references materiaCarrera(id)
+);
+
